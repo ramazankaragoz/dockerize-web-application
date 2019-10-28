@@ -1,4 +1,7 @@
 web:
-  build: .
+  build:
+    context: dockerize-web-application
+    dockerfile: Dockerfile
   ports:
-   - "8080:8080"
+    - "8080:8080"
+  restart: always
