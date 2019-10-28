@@ -7,5 +7,5 @@ MAINTAINER ramazankaragoz
 RUN apt-get update && apt-get install -y maven
 
 ADD . /usr/locale/dockerize-web-application
-RUN cd /usr/locale/dockerize-web-application && mvn assembly:assembly
+RUN cd /usr/locale/dockerize-web-application && mvn install -DskipTests
 CMD ["java", "-cp", "/usr/locale/dockerize-web-application/target/dockerize-web-application-0.0.1-SNAPSHOT.jar", "com.example.dockerizewebapplication.DockerizeWebApplication"]
