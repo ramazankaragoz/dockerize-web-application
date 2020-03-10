@@ -13,6 +13,6 @@ public class HelloController {
     @GetMapping
     public ResponseEntity<String> hello(){
 
-        return new ResponseEntity<>("Hello Dockerize Web Application", HttpStatus.OK);
+        return new ResponseEntity<>("Hello I am Ramazan :)", HttpStatus.OK);
     }
 }
