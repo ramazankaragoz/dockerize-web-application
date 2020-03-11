@@ -6,6 +6,7 @@ metadata:
     kubernetes.io/ingress.allow-http: "true"
 spec:
   rules:
+    - host: ramazankaragoz.com
       http:
         paths:
           - path: /demo-docker/hello
