@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Ingress
+metadata:
+  name: hello-app-ingress
+  annotations:
+    kubernetes.io/ingress.allow-http: "true"
+spec:
+  rules:
+      http:
+        paths:
+          - path: /demo-docker/hello
+            backend:
+              serviceName: hello-app-service
+              servicePort: 80
+
