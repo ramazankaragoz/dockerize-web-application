@@ -11,4 +11,3 @@ spec:
       name: http
   selector:
     app: hello-app
-  type: NodePort
