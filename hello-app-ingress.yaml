@@ -10,4 +10,7 @@ spec:
             backend:
               serviceName: hello-app-service
               servicePort: 80
-
+          - path: /
+            backend:
+              serviceName: hello-app-service
+              servicePort: 80
