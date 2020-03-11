@@ -7,7 +7,7 @@ spec:
     - host: ramazankaragoz.com
       http:
         paths:
-          - path: /demo-docker/hello
+          - path: /demo-docker
             backend:
               serviceName: hello-app-service
               servicePort: 80
