@@ -3,13 +3,15 @@ pipeline{
 
   stages{
 
+    stage("build"){
+
+
    agent {
 
     dockerfile true
 
     }
 
-    stage("build"){
       steps{
         echo 'firs build step'
         sh 'mvn --version'
