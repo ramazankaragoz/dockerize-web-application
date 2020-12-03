@@ -8,7 +8,6 @@ pipeline{
 
     agent {
             docker {
-            label 'docker'
             image 'maven'
             }
     }
@@ -22,7 +21,6 @@ pipeline{
     stage("frontend-build"){
       agent {
               docker {
-              label 'docker'
               image 'node' }
           }
        steps {
