@@ -7,7 +7,10 @@ pipeline{
     stage("backend-build"){
 
     agent {
-            docker { image 'maven' }
+            docker {
+            label 'docker'
+            image 'maven'
+            }
     }
 
       steps{
@@ -18,7 +21,9 @@ pipeline{
 
     stage("frontend-build"){
       agent {
-              docker { image 'node' }
+              docker {
+              label 'docker'
+              image 'node' }
           }
        steps {
                 sh 'node --version'
