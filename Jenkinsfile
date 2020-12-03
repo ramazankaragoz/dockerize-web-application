@@ -7,24 +7,14 @@ pipeline {
   }
   stages {
     stage('backend-build') {
-      agent {
-        docker {
-          image 'maven'
-        }
 
-      }
       steps {
         echo 'firs build step'
       }
     }
 
     stage('frontend-build') {
-      agent {
-        docker {
-          image 'node'
-        }
 
-      }
       steps {
         echo 'FRONTEND'
       }
