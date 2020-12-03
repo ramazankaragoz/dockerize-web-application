@@ -7,12 +7,12 @@ pipeline {
          docker {
                  image 'maven'
          }
-         docker{
-            image 'openjdk:8'
-         }
-         docker{
-                     dockerfile true
-                  }
+
+     }
+     node{
+          docker{
+            dockerfile true
+                       }
      }
       steps {
         sh 'mvn --version'
