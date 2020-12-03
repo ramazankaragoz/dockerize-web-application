@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    dockerfile {
-      filename 'dockerize-web-application/dockerfile'
-    }
-
-  }
+  agent any
   stages {
     stage('backend-build') {
 
