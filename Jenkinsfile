@@ -6,11 +6,9 @@ pipeline {
      agent{
          docker {
                  image 'maven'
+                 image 'openjdk:8'
+                 dockerfile true
          }
-         docker{
-                image 'openjdk:8'
-         }
-         agent { dockerfile true }
      }
       steps {
         sh 'mvn --version'
