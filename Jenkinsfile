@@ -11,6 +11,8 @@ pipeline {
       steps {
         sh 'mvn --version'
         echo 'firs build step'
+        sh 'docker-compose --version'
+        sh 'docker ps -a'
       }
     }
 
