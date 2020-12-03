@@ -12,7 +12,6 @@ pipeline {
       steps {
         sh 'mvn --version'
         echo 'firs build step'
-        sh 'docker ps -a'
       }
     }
 
