@@ -7,11 +7,14 @@ pipeline {
          docker {
                  image 'maven'
          }
+         docker{
+                image 'openjdk:8'
+         }
+         agent { dockerfile true }
      }
       steps {
         sh 'mvn --version'
         echo 'firs build step'
-        sh 'docker-compose --version'
         sh 'docker ps -a'
       }
     }
