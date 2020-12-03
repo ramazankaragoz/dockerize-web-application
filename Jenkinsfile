@@ -1,10 +1,4 @@
 pipeline{
-  agent any
-
-  stages{
-
-    stage("build"){
-
 
    agent {
 
@@ -12,6 +6,9 @@ pipeline{
 
     }
 
+  stages{
+
+    stage("build"){
       steps{
         echo 'firs build step'
         sh 'mvn --version'
