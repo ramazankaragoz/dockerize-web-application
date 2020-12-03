@@ -9,10 +9,12 @@ pipeline {
          }
 
      }
-     node{
+     agent{
+        node{
           docker{
             dockerfile true
                        }
+        }
      }
       steps {
         sh 'mvn --version'
