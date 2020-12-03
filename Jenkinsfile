@@ -3,24 +3,23 @@ pipeline {
   stages {
     stage('backend-build') {
 
-     agent{
-         docker {
-                 image 'maven'
-         }
 
-     }
-     agent{
-
-          docker{
-            dockerfile true
-          }
-
-     }
       steps {
+        sh 'docker pull maven'
+        sh 'docker pull openjdk:8'
         sh 'mvn --version'
+        sh 'java --version'
         echo 'firs build step'
-        sh 'docker ps -a'
+
       }
+
+         agent{
+
+                docker{
+                  dockerfile true
+                }
+
+           }
     }
 
     stage('frontend-build') {
