@@ -13,16 +13,17 @@ pipeline {
 
       }
 
-         agent{
 
-                docker{
-                  dockerfile true
-                }
-
-           }
     }
 
     stage('frontend-build') {
+
+    agent{
+       docker{
+                dockerfile true
+        }
+
+   }
 
       steps {
         echo 'FRONTEND'
