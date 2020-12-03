@@ -11,7 +11,7 @@ pipeline {
      }
       steps {
         sh 'mvn --version'
-        sh 'docker pull openjdk:8'
+        echo 'firs build step'
       }
     }
 
