@@ -1,37 +1,40 @@
-pipeline{
-
-   agent none
-
-  stages{
-
-    stage("backend-build"){
-
-    agent {
-            docker {
-            image 'maven'
-            }
+pipeline {
+  agent {
+    dockerfile {
+      filename 'dockerfile'
     }
 
-      steps{
-        sh 'mvn --version'
+  }
+  stages {
+    stage('backend-build') {
+      agent {
+        docker {
+          image 'maven'
+        }
+
+      }
+      steps {
         echo 'firs build step'
       }
     }
 
-    stage("frontend-build"){
+    stage('frontend-build') {
       agent {
-              docker {
-              image 'node' }
-          }
-       steps {
-                sh 'node --version'
+        docker {
+          image 'node'
         }
+
+      }
+      steps {
+        echo 'FRONTEND'
+      }
     }
 
-    stage("deploy"){
-          steps{
-            echo 'firs deploy step'
-          }
+    stage('deploy') {
+      steps {
+        echo 'firs deploy step'
+      }
     }
+
   }
 }
