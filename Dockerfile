@@ -6,7 +6,7 @@ MAINTAINER ramazankaragoz
 
 RUN apt-get update && apt-get install -y maven
 
-ADD target/dockerize-web-application-0.0.1-SNAPSHOT.jar app.jar
+ADD . /usr/locale/dockerize-web-application
+RUN cd /usr/locale/dockerize-web-application && mvn install -DskipTests
+ENTRYPOINT ["java", "-jar", "/usr/locale/dockerize-web-application/target/dockerize-web-application-0.0.1-SNAPSHOT.jar"]
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/app.jar"]
-
