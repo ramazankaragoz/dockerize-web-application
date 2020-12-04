@@ -4,10 +4,9 @@ MAINTAINER ramazankaragoz
 #RUN apt-get update && apt-get install -y oracle-java8-installer maven
 
 
-##RUN apt-get update && apt-get install -y maven
+RUN apt-get update && apt-get install -y maven
 
-RUN mvn install -DskipTests
-ADD target/dockerize-web-application-0.0.1-SNAPSHOT.jar app.jar
+ADD . /usr/locale/dockerize-web-application
+RUN cd /usr/locale/dockerize-web-application && mvn install -DskipTests
+ENTRYPOINT ["java", "-jar", "/usr/locale/dockerize-web-application/target/dockerize-web-application-0.0.1-SNAPSHOT.jar"]
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/app.jar"]
-
