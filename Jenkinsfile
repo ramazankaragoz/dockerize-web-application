@@ -7,8 +7,10 @@ pipeline {
     stage('backend-build') {
 
       steps {
+
         sh 'mvn --version'
         sh 'java -version'
+        sh 'docker-compose build'
 
         echo 'firs build step'
       }
