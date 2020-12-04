@@ -1,4 +1,4 @@
-FROM anapsix/alpine-java
+FROM Ubuntu
 MAINTAINER ramazankaragoz
 
 #RUN echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 boolean true" | debconf-set-selections
