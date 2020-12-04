@@ -2,11 +2,6 @@ version: "3"
 
 services:
   about:
-    build: ./
+    build: .
     ports:
       - "8080:80"
-
-        SSLEngine on
-        SSLCertificateFile /etc/ssl/certs/comodo-certificate.crt
-        SSLCertificateKeyFile /etc/ssl/certs/comodo-private.key
-        SSLCACertificateFile /etc/ssl/certs/comodo-ca-bundle.crt
