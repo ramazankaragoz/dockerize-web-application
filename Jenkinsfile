@@ -1,12 +1,7 @@
 pipeline {
 
-     agent {
+     agent any
 
-        dockerfile{
-             true
-        }
-
-     }
   stages {
 
     stage('backend-build') {
