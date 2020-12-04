@@ -3,10 +3,11 @@ pipeline {
     environment {
         imagename = "dockerize-web-app/rest-api"
         dockerImage = ''
-}
+    }
 
-  agent any
+     agent any
   stages {
+
     stage('backend-build') {
 
       steps {
@@ -14,13 +15,16 @@ pipeline {
         sh 'java -version'
 
         echo 'firs build step'
+
+
+        script {
+                dockerImage = docker.build imagename
+                dockerImage.push("$BUILD_NUMBER")
+                dockerImage.push('latest')
+              }
       }
 
-      script {
-        dockerImage = docker.build imagename
-        dockerImage.push("$BUILD_NUMBER")
-        dockerImage.push('latest')
-      }
+
 
     }
 
