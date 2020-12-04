@@ -1,23 +1,27 @@
 pipeline {
+
+    environment {
+        imagename = "dockerize-web-app/rest-api"
+        dockerImage = ''
+}
+
   agent any
   stages {
     stage('backend-build') {
 
-    agent {
-        checkout scm
-
-        def customImage = docker.build("my-image")
-
-        customImage.inside {
-            sh 'make test'
-        }
-    }
-
       steps {
         sh 'mvn --version'
         sh 'java -version'
+
         echo 'firs build step'
       }
+
+      script {
+        dockerImage = docker.build imagename
+        dockerImage.push("$BUILD_NUMBER")
+        dockerImage.push('latest')
+      }
+
     }
 
     stage('frontend-build') {
