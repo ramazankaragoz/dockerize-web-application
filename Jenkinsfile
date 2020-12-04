@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('backend-build') {
 
-    node {
+    agent {
         checkout scm
 
         def customImage = docker.build("my-image")
