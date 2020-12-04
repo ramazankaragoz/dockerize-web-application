@@ -6,8 +6,7 @@ MAINTAINER ramazankaragoz
 
 RUN apt-get update && apt-get install -y maven
 
-COPY company-ca.crt /usr/share/ca-certificates
-RUN update-ca-certificates
+RUN apt-get update && apt-get install -y ca-certificates --no-install-recommends && rm -rf /var/lib/apt/lists/*
 ADD . /usr/locale/dockerize-web-application
 RUN cd /usr/locale/dockerize-web-application && mvn install -DskipTests
 ENTRYPOINT ["java", "-jar", "/usr/locale/dockerize-web-application/target/dockerize-web-application-0.0.1-SNAPSHOT.jar"]
