@@ -2,11 +2,20 @@ pipeline {
   agent any
   stages {
     stage('backend-build') {
+
+    node {
+        checkout scm
+
+        def customImage = docker.build("my-image")
+
+        customImage.inside {
+            sh 'make test'
+        }
+    }
+
       steps {
         sh 'mvn --version'
         sh 'java -version'
-        sh 'docker-compose --version'
-        sh 'docker-compose up'
         echo 'firs build step'
       }
     }
