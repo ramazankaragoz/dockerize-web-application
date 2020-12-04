@@ -10,7 +10,7 @@ pipeline {
 
         sh 'mvn --version'
         sh 'java -version'
-        sh 'docker-compose build'
+        sh 'docker-compose up -d'
 
         echo 'firs build step'
       }
