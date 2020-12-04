@@ -2,11 +2,13 @@ pipeline {
   agent any
   stages {
     stage('backend-build') {
+
+    agent{
+       docker{ dockerfile true }
+    }
       steps {
         sh 'mvn --version'
         sh 'java -version'
-        sh 'docker-compose --version'
-        sh 'docker-compose up'
         echo 'firs build step'
       }
     }
