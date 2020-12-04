@@ -5,12 +5,13 @@ pipeline {
 
      agent{
          docker {
-                 image 'maven'
+            image 'maven'
          }
 
      }
       steps {
         sh 'mvn --version'
+        sh 'docker-compose --version'
         echo 'firs build step'
       }
     }
